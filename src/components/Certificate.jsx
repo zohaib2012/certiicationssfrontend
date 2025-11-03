@@ -41,7 +41,7 @@ const formatDate = (dateString) => {
 
     {/* الشعار */}
     <img
-      src="/src/assets/loggo.png" // ضع المسار الصحيح للشعار
+      src="https://res.cloudinary.com/dlrinxri6/image/upload/v1762192561/products/eghevsqvmzxiicdffboj.png" // ضع المسار الصحيح للشعار
       alt="أمانة منطقة الرياض"
       className="w-14 h-14 object-contain"
     />

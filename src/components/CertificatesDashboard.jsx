@@ -104,12 +104,25 @@ if(!token){
                 <td className="py-2 px-4">{c.customerName}</td>
                 <td className="py-2 px-4">{c.idNumber}</td>
                 <td className="py-2 px-4">{c.profession}</td>
-                <td className="py-2 px-4">
+                {/* <td className="py-2 px-4">
                   {new Date(c.issueDate).toLocaleDateString("ar-SA")}
                 </td>
                 <td className="py-2 px-4">
                   {new Date(c.expiryDate).toLocaleDateString("ar-SA")}
-                </td>
+                </td> */}
+
+                <td className="py-2 px-4">
+  {(() => {
+    const d = new Date(c.issueDate);
+    return `${String(d.getDate()).padStart(2, "0")}/${String(d.getMonth()+1).padStart(2, "0")}/${d.getFullYear()}`;
+  })()}
+</td>
+<td className="py-2 px-4">
+  {(() => {
+    const d = new Date(c.expiryDate);
+    return `${String(d.getDate()).padStart(2, "0")}/${String(d.getMonth()+1).padStart(2, "0")}/${d.getFullYear()}`;
+  })()}
+</td>
                 <td className="py-2 px-4 flex gap-2 justify-center">
                   {/* <button className="bg-green-700 hover:bg-green-800 text-white px-3 py-1 rounded">
 <CertificateDetails id="some-certificate-id" />
