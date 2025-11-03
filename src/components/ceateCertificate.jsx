@@ -93,7 +93,7 @@ export default function CreateCertificate() {
         <div>
           <label className="block font-semibold mb-1">تاريخ الإصدار</label>
           <input
-            type="date"
+            type="text"
             name="issueDate"
             value={formData.issueDate}
             onChange={handleChange}
@@ -105,7 +105,7 @@ export default function CreateCertificate() {
         <div>
           <label className="block font-semibold mb-1">تاريخ الانتهاء</label>
           <input
-            type="date"
+            type="text"
             name="expiryDate"
             value={formData.expiryDate}
             onChange={handleChange}
@@ -201,7 +201,7 @@ export default function CreateCertificate() {
         <div>
           <label className="block font-semibold mb-1">تاريخ إنهاء البرنامج</label>
           <input
-            type="date"
+            type="text"
             name="programCompletionDate"
             value={formData.programCompletionDate}
             onChange={handleChange}
