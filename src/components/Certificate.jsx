@@ -73,25 +73,25 @@ export const CertificateDetails = ({ id }) => {
     className='font-bahij -mt-10 font-medium'>
     
   <Section title='بيانات الشهادة:' >
-    <KeyValue label="رقم الشهادة" value={certificate.certificateNumber      } />
-    <KeyValue label="تاريخ الإصدار" value={certificate.issueDate      } />
-    <KeyValue label="نهاية الصلاحية" value={certificate.expiryDate      } />
+    <KeyValue label="رقم الشهادة" value={certificate.certificateNumber.substring(0,20)   } />
+    <KeyValue label="تاريخ الإصدار" value={certificate.issueDate.substring(0,20)   } />
+    <KeyValue label="نهاية الصلاحية" value={certificate.expiryDate.substring(0,20)   } />
   </Section>
 
   <Section title="بيانات صاحب الشهادة: ">
-    <KeyValue label="الاسم" value={certificate.customerName      } />
-    <KeyValue label="رقم الهوية" value={certificate.idNumber      } />
-    <KeyValue label="الجنس" value={certificate.gender      } />
-    <KeyValue label="الجنسية" value={certificate.nationality      } />
-    <KeyValue label="المهنة" value={certificate.profession      } />
-    <KeyValue label="البرنامج التثقيفي" value={certificate.educationalProgram      } />
-    <KeyValue label="تاريخ إنهاء البرنامج" value={certificate.programCompletionDate      } />
+    <KeyValue label="الاسم" value={certificate.customerName.substring(0,20)   } />
+    <KeyValue label="رقم الهوية" value={certificate.idNumber.substring(0,20)   } />
+    <KeyValue label="الجنس" value={certificate.gender.substring(0,20)   } />
+    <KeyValue label="الجنسية" value={certificate.nationality.substring(0,20)   } />
+    <KeyValue label="المهنة" value={certificate.profession.substring(0,20)   } />
+    <KeyValue label="البرنامج التثقيفي" value={certificate.educationalProgram.substring(0,20)   } />
+    <KeyValue label="تاريخ إنهاء البرنامج" value={certificate.programCompletionDate.substring(0,20)   } />
   </Section>
 
 
   <Section title="بيانات المنشأة:">
-    <KeyValue label="اسم المنشأة" value={certificate.establishmentName    || "----" } />
-    <KeyValue label="رقم رخصة المنشأة" value={certificate.establishmentLicense    || "----"    } />
+    <KeyValue label="اسم المنشأة" value={certificate.establishmentName.substring(0,20) || "----" } />
+    <KeyValue label="رقم رخصة المنشأة" value={certificate.establishmentLicense.substring(0,20) || "----"    } />
   </Section>
   
   </div>
