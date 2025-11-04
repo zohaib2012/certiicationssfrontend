@@ -19,7 +19,7 @@ export const CertificateDetails = ({ id }) => {
 // };
    return (
 
-    <div className="m-5 md:m-0 lg:m-0">
+    <div className="m-5 md:m-0 lg:m-0 ">
       {/* <button
           onClick={() => navigate(-1)}
           className="bg-green-700 hover:bg-green-800 h-8 w-18 text-white font-semibold px-4 py-1 rounded-lg shadow-md transition duration-200"
@@ -28,7 +28,7 @@ export const CertificateDetails = ({ id }) => {
         </button> */}
       
 
-<div className="flex flex-col justify-center items-center mt-5 mb-0">
+<div className="flex flex-col justify-center items-center  mt-5 mb-0">
   {/* الشعار والعنوان في صف واحد مع خط فاصل */}
   <div className="flex items-center justify-center mb-0">
     {/* النص */}
@@ -62,7 +62,7 @@ export const CertificateDetails = ({ id }) => {
 
 
     
-    <div className="max-w-lg mx-auto bg-white border border-gray-100 rounded-2xl  shadow-2xl overflow-hidden font-sans text-right mt-8 p-6">
+    <div className="max-w-md mx-auto    bg-white border border-gray-100 rounded-2xl shadow-2xl overflow-hidden font-sans text-right mt-8 p-6">
       {/* Header */}
       
     
