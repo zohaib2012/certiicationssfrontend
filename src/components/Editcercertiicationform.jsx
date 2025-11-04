@@ -174,7 +174,7 @@ export default function EditCertificate() {
         <div>
           <label className="block font-semibold mb-1">تاريخ الإصدار</label>
           <input
-            type="date"
+            type="text"
             name="issueDate"
             value={formData.issueDate}
             onChange={handleChange}
@@ -186,7 +186,7 @@ export default function EditCertificate() {
         <div>
           <label className="block font-semibold mb-1">تاريخ الانتهاء</label>
           <input
-            type="date"
+            type="text"
             name="expiryDate"
             value={formData.expiryDate}
             onChange={handleChange}
@@ -221,7 +221,7 @@ export default function EditCertificate() {
           { label: "الجنسية", name: "nationality" },
           { label: "المهنة", name: "profession" },
           { label: "البرنامج التدريبي", name: "educationalProgram" },
-          { label: "تاريخ إنهاء البرنامج", name: "programCompletionDate", type: "date" },
+          { label: " ج", name: "programCompletionDate", type: "text" },
           { label: "اسم المنشأة", name: "establishmentName" },
           { label: "رقم رخصة المنشأة", name: "establishmentLicense" },
         ].map((field) => (
