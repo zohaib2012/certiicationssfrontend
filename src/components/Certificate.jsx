@@ -37,7 +37,7 @@ export const CertificateDetails = ({ id }) => {
     </h2>
 
     {/* الخط الفاصل */}
-    <div className="h-10 w-px bg-gray-300 mx-2"></div>
+    <div className="h-18 w-px bg-gray-300 mx-2"></div>
 
     {/* الشعار */}
     <img
@@ -84,7 +84,7 @@ export const CertificateDetails = ({ id }) => {
     <KeyValue label="الجنس" value={certificate.gender.substring(0,15)  .substring(0,15)  } />
     <KeyValue label="الجنسية" value={certificate.nationality.substring(0,15)  .substring(0,15)  } />
     <KeyValue label="المهنة" value={certificate.profession.substring(0,15)  .substring(0,15)  } />
-    <KeyValue label="البرنامج التدريبي" value={certificate.educationalProgram.substring(0,15)  .substring(0,15)  } />
+    <KeyValue label="البرنامج التثقيفي" value={certificate.educationalProgram.substring(0,15)  .substring(0,15)  } />
     <KeyValue label="تاريخ إنهاء البرنامج" value={certificate.programCompletionDate.substring(0,15)  .substring(0,15)  } />
   </Section>
 
