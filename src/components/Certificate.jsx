@@ -104,13 +104,13 @@ export const CertificateDetails = ({ id }) => {
 
 // // مكوّن مساعد لعناصر “تسمية + قيمة”
 const KeyValue = ({ label, value }) => (
-  <div className="row-1">
 
-  <div className="flex justify-evenly ml-32 space-x-10 py-2  last:border-none border-2 border-amber-500">
-    <span className="text-gray-500">{label}</span>
-    <span className=" text-black">{value}</span>
-  </div>
-  </div>
+
+<div className="flex justify-evenly ml-32 space-x-10 py-2 last:border-none ">
+  <span className="text-gray-500">{label}</span>
+  <span className=" text-black">{value}</span>
+</div>
+
 );
 
 
