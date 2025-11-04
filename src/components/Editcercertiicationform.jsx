@@ -46,12 +46,14 @@ export default function EditCertificate() {
     if (certificate) {
       setFormData({
         certificateNumber: certificate.certificateNumber || "",
-        issueDate: certificate.issueDate
-          ? new Date(certificate.issueDate).toISOString().substring(0, 10)
-          : "",
-        expiryDate: certificate.expiryDate
-          ? new Date(certificate.expiryDate).toISOString().substring(0, 10)
-          : "",
+        issueDate: certificate.issueDate|| [""],
+          // ? new Date(certificate.issueDate).toISOString().substring(0, 10)
+          // : "",
+
+        expiryDate: certificate.expiryDate|| [""],
+          // ? new Date(certificate.expiryDate).toISOString().substring(0, 10)
+          // : "",
+
         customerImage: certificate.customerImage || [""],
         customerName: certificate.customerName || "",
         idNumber: certificate.idNumber || "",
@@ -59,11 +61,13 @@ export default function EditCertificate() {
         nationality: certificate.nationality || "",
         profession: certificate.profession || "",
         educationalProgram: certificate.educationalProgram || "",
-        programCompletionDate: certificate.programCompletionDate
-          ? new Date(certificate.programCompletionDate)
-              .toISOString()
-              .substring(0, 10)
-          : "",
+        programCompletionDate: certificate.programCompletionDate|| [""],
+
+          // ? new Date(certificate.programCompletionDate)
+          //     .toISOString()
+          //     .substring(0, 10)
+          // : "",
+          
         establishmentName: certificate.establishmentName || "",
         establishmentLicense: certificate.establishmentLicense || "",
       });

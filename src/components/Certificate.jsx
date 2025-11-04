@@ -19,7 +19,7 @@ export const CertificateDetails = ({ id }) => {
 // };
    return (
 
-    <div className="m-16 md:m-0 lg:m-0">
+    <div className="m-5 md:m-0 lg:m-0">
       {/* <button
           onClick={() => navigate(-1)}
           className="bg-green-700 hover:bg-green-800 h-8 w-18 text-white font-semibold px-4 py-1 rounded-lg shadow-md transition duration-200"
@@ -69,28 +69,29 @@ export const CertificateDetails = ({ id }) => {
 
       {/* Data Sections */}
 <div dir="rtl" className="space-y-0 text-right">
-  <div className='font-bahij -mt-10 '>
+  <div 
+    className='font-bahij -mt-10 font-medium'>
     
   <Section title='بيانات الشهادة:' >
-    <KeyValue label="رقم الشهادة" value={certificate.certificateNumber} />
-    <KeyValue label="تاريخ الإصدار" value={certificate.issueDate} />
-    <KeyValue label="نهاية الصلاحية" value={certificate.expiryDate} />
+    <KeyValue label="رقم الشهادة" value={certificate.certificateNumber.substring(0,15)  .substring(0,15)  } />
+    <KeyValue label="تاريخ الإصدار" value={certificate.issueDate.substring(0,15)  .substring(0,15)  } />
+    <KeyValue label="نهاية الصلاحية" value={certificate.expiryDate.substring(0,15)  .substring(0,15)  } />
   </Section>
 
   <Section title="بيانات صاحب الشهادة: ">
-    <KeyValue label="الاسم" value={certificate.customerName} />
-    <KeyValue label="رقم الهوية" value={certificate.idNumber} />
-    <KeyValue label="الجنس" value={certificate.gender} />
-    <KeyValue label="الجنسية" value={certificate.nationality} />
-    <KeyValue label="المهنة" value={certificate.profession} />
-    <KeyValue label="البرنامج التدريبي" value={certificate.educationalProgram} />
-    <KeyValue label="تاريخ إنهاء البرنامج" value={certificate.programCompletionDate} />
+    <KeyValue label="الاسم" value={certificate.customerName.substring(0,15)  .substring(0,15)  } />
+    <KeyValue label="رقم الهوية" value={certificate.idNumber.substring(0,15)  .substring(0,15)  } />
+    <KeyValue label="الجنس" value={certificate.gender.substring(0,15)  .substring(0,15)  } />
+    <KeyValue label="الجنسية" value={certificate.nationality.substring(0,15)  .substring(0,15)  } />
+    <KeyValue label="المهنة" value={certificate.profession.substring(0,15)  .substring(0,15)  } />
+    <KeyValue label="البرنامج التدريبي" value={certificate.educationalProgram.substring(0,15)  .substring(0,15)  } />
+    <KeyValue label="تاريخ إنهاء البرنامج" value={certificate.programCompletionDate.substring(0,15)  .substring(0,15)  } />
   </Section>
 
 
   <Section title="بيانات المنشأة:">
-    <KeyValue label="اسم المنشأة" value={certificate.establishmentName || "----"} />
-    <KeyValue label="رقم رخصة المنشأة" value={certificate.establishmentLicense || "----"} />
+    <KeyValue label="اسم المنشأة" value={certificate.establishmentName || "----".substring(0,15)  .substring(0,15)  } />
+    <KeyValue label="رقم رخصة المنشأة" value={certificate.establishmentLicense || "----".substring(0,15)  .substring(0,15)  } />
   </Section>
   
   </div>
