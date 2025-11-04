@@ -287,8 +287,8 @@ export default function CertificatesDashboard() {
                 <td className="py-2 px-4">{safeText(c.idNumber)}</td>
                 <td className="py-2 px-4">{safeText(c.profession)}</td>
 
-                <td className="py-2 px-4">{formatDate(c.issueDate)}</td>
-                <td className="py-2 px-4">{formatDate(c.expiryDate)}</td>
+                <td className="py-2 px-4">{safeText(c.issueDate)}</td>
+                <td className="py-2 px-4">{safeText(c.expiryDate)}</td>
 
                 <td className="py-2 px-4 flex gap-2 justify-center">
                   <Link
