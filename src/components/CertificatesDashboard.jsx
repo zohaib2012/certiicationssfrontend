@@ -96,14 +96,19 @@ if(!token){
                 <td className="py-2 px-4">
                   <img
                     src={c.customerImage?.[0]}
-                    alt={c.customerName.substring(0,15)}
+                    alt={c.customerName.substring(0,15) || "—"}
                     className="w-10 h-10 rounded-full object-cover mx-auto"
                   />
                 </td>
-                <td className="py-2 px-4">{c.certificateNumber.substring(0,15)}</td>
+                <td className="py-2 px-4">{c.certificateNumber?.substring(0,15) || "—"}</td>
+<td className="py-2 px-4">{c.customerName?.substring(0,15) || "—"}</td>
+<td className="py-2 px-4">{c.idNumber?.substring(0,15) || "—"}</td>
+<td className="py-2 px-4">{c.profession?.substring(0,15) || "—"}</td>
+
+                {/* <td className="py-2 px-4">{c.certificateNumber.substring(0,15)}</td>
                 <td className="py-2 px-4">{c.customerName.substring(0,15)}</td>
                 <td className="py-2 px-4">{c.idNumber.substring(0,15)}</td>
-                <td className="py-2 px-4">{c.profession.substring(0,15)}</td>
+                <td className="py-2 px-4">{c.profession.substring(0,15)}</td> */}
                 {/* <td className="py-2 px-4">
                   {new Date(c.issueDate).toLocaleDateString("ar-SA")}
                 </td>
@@ -113,13 +118,13 @@ if(!token){
 
                 <td className="py-2 px-4">
   {(() => {
-    const d = new Date(c.issueDate.substring(0,15));
-    return `${String(d.getDate()).padStart(2, "0")}/${String(d.getMonth()+1).padStart(2, "0")}/${d.getFullYear()}`;
+    const d = new Date(c.issueDate.substring(0,15) || "—");
+    return `${String(d.getDate()).padStart(2, "0") || "—"}/${String(d.getMonth()+1).padStart(2, "0")}/${d.getFullYear()}`;
   })()}
 </td>
 <td className="py-2 px-4">
   {(() => {
-    const d = new Date(c.expiryDate.substring(0,15));
+    const d = new Date(c.expiryDate.substring(0,15) || "—");
     return `${String(d.getDate()).padStart(2, "0")}/${String(d.getMonth()+1).padStart(2, "0")}/${d.getFullYear()}`;
   })()}
 </td>
