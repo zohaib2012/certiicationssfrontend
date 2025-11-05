@@ -196,7 +196,7 @@ export default function CertificatesDashboard() {
     localStorage.removeItem("Token");
     let token = localStorage.getItem("Token");
     if (!token) {
-      navigate("/login");
+      navigate("/");
     }
   };
 
@@ -292,7 +292,7 @@ export default function CertificatesDashboard() {
 
                 <td className="py-2 px-4 flex gap-2 justify-center">
                   <Link
-                    to={`/certificate/${c._id}`}
+                    to={`/DownloadFile/${c._id}`}
                     className="bg-green-700 hover:bg-green-800 text-white px-3 py-1 rounded inline-block text-center"
                   >
                     عرض

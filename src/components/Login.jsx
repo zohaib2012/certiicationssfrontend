@@ -8,19 +8,37 @@ export default function Login() {
   const [loginUser, { isLoading, error }] = useLoginUserMutation();
 
   const navigate=useNavigate()
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const result = await loginUser({ email, password }).unwrap();
-      let token=result.logintoken
-      localStorage.setItem('Token',token)
-      alert('Login successfully ');
-      navigate('/')
-      console.log('User:', result.user);
-    } catch (err) {
-      alert(err?.data?.message || 'An error occurred while logging in');
-    }
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const result = await loginUser({ email, password }).unwrap();
+  //     let token=result.logintoken
+  //     localStorage.setItem('Token',token)
+  //     alert('Login successfully ');
+
+  //     navigate('/')
+
+  //     console.log('User:', result.user);
+  //   } catch (err) {
+  //     alert(err?.data?.message || 'An error occurred while logging in');
+  //   }
+  // };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const result = await loginUser({ email, password }).unwrap();
+    let token = result.logintoken;
+    localStorage.setItem('Token', token); // store token
+    alert('Login successfully');
+
+    // Navigate to protected dashboard after successful login
+    navigate('/admin/dashboard');
+
+    console.log('User:', result.user);
+  } catch (err) {
+    alert(err?.data?.message || 'An error occurred while logging in');
+  }
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 font-sans">

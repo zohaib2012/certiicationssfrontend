@@ -220,8 +220,8 @@ export default function EditCertificate() {
           { label: "الجنس", name: "gender" },
           { label: "الجنسية", name: "nationality" },
           { label: "المهنة", name: "profession" },
-          { label: "البرنامج التدريبي", name: "educationalProgram" },
-          { label: " ج", name: "programCompletionDate", type: "text" },
+          { label: "البرنامج التثقيفي", name: "educationalProgram" },
+          { label: " تاريخ إنهاء البرنامج", name: "programCompletionDate", type: "text" },
           { label: "اسم المنشأة", name: "establishmentName" },
           { label: "رقم رخصة المنشأة", name: "establishmentLicense" },
         ].map((field) => (
