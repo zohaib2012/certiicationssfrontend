@@ -144,7 +144,7 @@ export default function EditCertificate() {
       }).unwrap();
 
       alert("تم تحديث الشهادة بنجاح");
-      navigate("/"); // Go back to dashboard
+      navigate("/admin/dashboard"); // Go back to dashboard
     } catch (error) {
       console.error(error);
       alert("حدث خطأ أثناء تحديث الشهادة");

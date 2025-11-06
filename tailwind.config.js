@@ -1,9 +1,8 @@
-
 export default {
   theme: {
     extend: {
       fontFamily: {
-        bahij: ["'BahijTheSansArabic'", "sans-serif"],
+        bahij: ["'Reem Kufi'", "sans-serif"],
       },
     },
   },
