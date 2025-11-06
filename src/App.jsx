@@ -11,6 +11,7 @@ function CertificateWrapper() {
   const { id } = useParams();
   return <CertificateDetails id={id} />;
 }
+console.log(getComputedStyle(document.body).fontFamily)
 
 function App() {
   return (

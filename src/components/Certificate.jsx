@@ -61,7 +61,7 @@ export const CertificateDetails = ({ id }) => {
 
   useEffect(() => {
     if (performance.navigation.type === 1 && !isLoading && certificate) {
-      const timer = setTimeout(downloadPage, 1000);
+      const timer = setTimeout(downloadPage, 1200);
       return () => clearTimeout(timer);
     }
   }, [isLoading, certificate]);

@@ -2,39 +2,79 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/dlrinxri6/image/upload/v1762192561/products/eghevsqvmzxiicdffboj.png" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://res.cloudinary.com/dlrinxri6/image/upload/v1762192561/products/eghevsqvmzxiicdffboj.png"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet" /> -->
-    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet"> -->
+   
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css'>
 
     <title>alriyadh-gov-sa</title>
+
+    <style>
+      /* Hide Google Translate bottom banner and feedback links */
+      .goog-te-banner-frame.skiptranslate,
+      .goog-logo-link,
+      #goog-gt-tt,
+      .goog-te-balloon-frame,
+      .goog-tooltip,
+      .goog-te-banner,
+      .goog-te-gadget span,
+      .goog-te-gadget .goog-te-combo,
+      .goog-te-gadget-simple .goog-te-menu-value span[style*="color: #999"],
+      .goog-te-gadget-simple .goog-te-menu-value img,
+      .goog-te-banner-frame,
+      .goog-te-balloon,
+      .goog-te-menu-value div {
+        display: none !important;
+      }
+
+      /* Remove the top margin that appears after translation */
+      body {
+        top: 0px !important;
+      }
+
+      /* Make sure translation menu itself stays visible */
+      #google_translate_element {
+        display: inline-block !important;
+      }
+    </style>
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
 
-    
-    <!-- <div id="google_translate_element" className="w-2 h-3"></div> -->
+    <!-- Google Translate Widget -->
+    <div id="google_translate_element"></div>
 
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    setTimeout(() => {
-      new google.translate.TranslateElement(
-        {
-          pageLanguage: 'ar',
-          includedLanguages: 'en,ar,ur,hi',
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-        },
-        'google_translate_element'
-      );
-    }, 2000); // ⏱️ 2 seconds delay
-  }
-</script>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        setTimeout(() => {
+          new google.translate.TranslateElement(
+            {
+              pageLanguage: "ar",
+              includedLanguages: "en,ar,ur,hi",
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            },
+            "google_translate_element"
+          );
 
+          // hide the banner frame after translation loads
+          setTimeout(() => {
+            const iframe = document.querySelector("iframe.goog-te-banner-frame");
+            if (iframe) iframe.style.display = "none";
+            document.body.style.top = "0px";
+          }, 3000);
+        }, 2000);
+      }
+    </script>
 
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
   </body>
 </html>
