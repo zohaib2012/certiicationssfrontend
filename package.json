@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@html2canvas/html2canvas": "^1.6.3",
     "@reduxjs/toolkit": "^2.9.2",
-    "html2canvas": "^1.4.1",
+    "dom-to-image": "^2.6.0",
+    "html2pdf.js": "^0.10.1",
     "jspdf": "^3.0.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

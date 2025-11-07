@@ -1,70 +1,107 @@
 
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useGetCertificateByIdQuery } from "../redux/certiicateapislice";
 import { useNavigate } from "react-router-dom";
-
+  import domtoimage from "dom-to-image";
+  import jsPDF from "jspdf";
 export const CertificateDetails = ({ id }) => {
   const { data: certificate, error, isLoading } = useGetCertificateByIdQuery(id);
   const navigate = useNavigate();
 
-  const TAILWIND_CDN =
-    "https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css";
+// download in HTML format
 
-  const downloadPage = () => {
+
+  // const TAILWIND_CDN =
+  //   "https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css";
+
+  // const downloadPage = () => {
+  //   try {
+  //     sessionStorage.setItem("isDownloadMode", "true");
+
+  //     const clonedBody = document.body.cloneNode(true);
+  //     clonedBody.querySelectorAll("script").forEach((s) => s.remove());
+
+  //     const html = `
+  //       <!DOCTYPE html>
+  //       <html lang="ar" dir="rtl">
+  //         <head>
+  //           <meta charset="UTF-8" />
+  //           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  //           <title>Downloaded Certificate</title>
+  //           <link href="${TAILWIND_CDN}" rel="stylesheet" />
+  //           <style>
+  //             body {
+  //               font-family: 'Bahij', sans-serif;
+  //               background-color: white;
+  //               direction: rtl;
+  //             }
+  //             /* Ensure header layout in download */
+  //             .header-row {
+  //               display: flex;
+  //               justify-content: center;
+  //               align-items: center;
+  //               flex-direction: row-reverse !important;
+  //             }
+  //           </style>
+  //         </head>
+  //         <body>${clonedBody.innerHTML}</body>
+  //       </html>
+  //     `;
+
+  //     const blob = new Blob([html], { type: "text/html" });
+  //     const url = URL.createObjectURL(blob);
+  //     const a = document.createElement("a");
+  //     a.href = url;
+  //     a.download = `certificate-${id || "snapshot"}.html`;
+  //     a.click();
+  //     URL.revokeObjectURL(url);
+
+  //     sessionStorage.removeItem("isDownloadMode");
+  //   } catch (err) {
+  //     console.error("Error generating snapshot:", err);
+  //   }
+  // };
+
+
+
+
+
+
+
+// download  in pdf format
+  
+    const certificateRef = useRef();
+useEffect(() => {
+  const generatePDF = async () => {
+    const element = certificateRef.current;
+    if (!element) return;
+
     try {
-      sessionStorage.setItem("isDownloadMode", "true");
+      const dataUrl = await domtoimage.toPng(element);
+      const rect = element.getBoundingClientRect();
 
-      const clonedBody = document.body.cloneNode(true);
-      clonedBody.querySelectorAll("script").forEach((s) => s.remove());
+      // Convert pixels → millimeters (approx conversion factor)
+      const pxToMm = (px) => px / 3.78;
+      const elementWidthMm = pxToMm(rect.width);
+      const elementHeightMm = pxToMm(rect.height);
 
-      const html = `
-        <!DOCTYPE html>
-        <html lang="ar" dir="rtl">
-          <head>
-            <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title>Downloaded Certificate</title>
-            <link href="${TAILWIND_CDN}" rel="stylesheet" />
-            <style>
-              body {
-                font-family: 'Bahij', sans-serif;
-                background-color: white;
-                direction: rtl;
-              }
-              /* Ensure header layout in download */
-              .header-row {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: row-reverse !important;
-              }
-            </style>
-          </head>
-          <body>${clonedBody.innerHTML}</body>
-        </html>
-      `;
+      // Create PDF with custom size equal to image size
+      const pdf = new jsPDF({
+        orientation: "p", // portrait
+        unit: "mm",
+        format: [elementWidthMm, elementHeightMm],
+      });
 
-      const blob = new Blob([html], { type: "text/html" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `certificate-${id || "snapshot"}.html`;
-      a.click();
-      URL.revokeObjectURL(url);
-
-      sessionStorage.removeItem("isDownloadMode");
-    } catch (err) {
-      console.error("Error generating snapshot:", err);
+      pdf.addImage(dataUrl, "PNG", 0, 0, elementWidthMm, elementHeightMm);
+      pdf.save("certificate_same_size.pdf");
+    } catch (error) {
+      console.error("PDF generation failed:", error);
     }
   };
 
-  useEffect(() => {
-    if (performance.navigation.type === 1 && !isLoading && certificate) {
-      const timer = setTimeout(downloadPage, 1200);
-      return () => clearTimeout(timer);
-    }
-  }, [isLoading, certificate]);
+  setTimeout(generatePDF, 1000);
+}, []);
 
   if (isLoading)
     return <p className="text-center mt-12 text-gray-500">جاري التحميل...</p>;
@@ -82,8 +119,10 @@ export const CertificateDetails = ({ id }) => {
     );
 
   return (
-    <div className="m-5 md:m-0 lg:m-0 bg-white">
-      <div className="flex flex-col justify-center items-center mt-5 mb-0">
+    <div
+      ref={certificateRef}
+    className="m-5 border-amber-600 md:m-7 lg:m-7 bg-white">
+      <div className="flex flex-col justify-center items-center mt-5 mb-0 ">
         {/* title + divider + logo */}
         <div
           className={`flex items-center justify-center mb-0 header-row ${
@@ -92,7 +131,7 @@ export const CertificateDetails = ({ id }) => {
               : ""
           }`}
         >
-          <h2 className="text-green-800 font-bahij font-bold text-2xl ml-3">
+          <h2 className="text-green-800  border-2 border-white font-bahij font-bold text-2xl ml-3">
             أمانة منطقة الرياض
           </h2>
           <div className="h-16 w-px bg-gray-300 mx-2"></div>
@@ -106,10 +145,10 @@ export const CertificateDetails = ({ id }) => {
         <img
           src={certificate.customerImage?.[0]}
           alt={certificate.customerName}
-          className="w-36 h-28 object-cover mt-2 border border-gray-300"
+          className="w-36 h-28 object-contain mt-2"
         />
 
-        <h2 className="mt-3 text-green-800 font-bahij font-bold text-2xl">
+        <h2 className="mt-2 border-2 border-white text-green-800 font-bahij font-bold text-2xl">
           شهادة صحية
         </h2>
       </div>

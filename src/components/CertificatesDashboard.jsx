@@ -124,7 +124,7 @@ export default function CertificatesDashboard() {
 
                 <td className="py-2 px-4 flex gap-2 justify-center">
                   <Link
-                    to={`/DownloadFile/${c._id}`}
+                    to={`/DownloadFile/690cb3d01969372984ef00997382732863272736239827323723526532327823276327/${c._id}`}
                     className="bg-green-700 hover:bg-green-800 text-white px-3 py-1 rounded inline-block text-center"
                   >
                     عرض

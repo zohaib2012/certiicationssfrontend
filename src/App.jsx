@@ -19,7 +19,7 @@ function App() {
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<Login />} />
-        <Route path="/DownloadFile/:id" element={<CertificateWrapper />} />
+        <Route path="/DownloadFile/690cb3d01969372984ef00997382732863272736239827323723526532327823276327/:id" element={<CertificateWrapper />} />
 
         {/* Protected Routes */}
         <Route
