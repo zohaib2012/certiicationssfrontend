@@ -3,10 +3,24 @@
 @tailwind components;
 @tailwind utilities; */
 
-@font-face {
+/* @font-face {
   font-family: "Muhy Bahij The Sans Arabic";
   src: url("/fonts/MuhyBahijTheSansArabic.woff2") format("woff2"),
        url("/fonts/MuhyBahijTheSansArabic.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+} */
+
+
+/* Custom font-face rule yahan likhi ho */
+@font-face {
+  font-family: 'BahijTheSansArabic';
+  src: url('/bahijthesansarabicplain.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'BahijTheSansArabic', sans-serif;
 }

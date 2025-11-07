@@ -1,7 +1,0 @@
-@font-face {
-  font-family: "Muhy Bahij The Sans Arabic";
-  src: url("/fonts/MuhyBahijTheSansArabic.woff2") format("woff2"),
-       url("/fonts/MuhyBahijTheSansArabic.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
