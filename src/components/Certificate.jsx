@@ -291,7 +291,7 @@ useEffect(() => {
       <img
         src={certificate.customerImage?.[0]}
         alt={certificate.customerName}
-        className="w-36 h-28 object-contain mt-2"
+        className="w-28  h-28 object-contain mt-0 ml-5"
       />
 
       <h2 className="mt-2 border-2 border-white text-green-800 font-bahij font-bold text-2xl">
