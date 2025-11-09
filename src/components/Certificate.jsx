@@ -138,42 +138,121 @@ export const CertificateDetails = ({ id }) => {
 
 //   setTimeout(generatePDF, 1000);
 // }, []);
+// useEffect(() => {
+//   const generatePDF = async () => {
+//     const element = certificateRef.current;
+//     if (!element) return;
+
+//     try {
+//       const dataUrl = await domtoimage.toPng(element, {
+//         quality: 1,
+//         scale: 2, // higher-quality render
+//       });
+
+//       const rect = element.getBoundingClientRect();
+
+//       // Convert pixels → millimeters
+//       const pxToMm = (px) => px / 3.78;
+//       let elementWidthMm = pxToMm(rect.width);
+//       let elementHeightMm = pxToMm(rect.height);
+
+//       // ✅ Instead of increasing canvas size too much, keep proportions safe
+//       const increase = 1.3; // 15% larger (safe)
+//       const pdfWidth = elementWidthMm * increase;
+//       const pdfHeight = elementHeightMm * increase;
+
+//       // ✅ Always make PDF at least A4 size if content smaller
+//       const pdf = new jsPDF({
+//         orientation: "p",
+//         unit: "mm",
+//         format: [Math.max(pdfWidth, 500), Math.max(pdfHeight, 210)],
+//       });
+
+//       // Center image inside the page
+//       const xOffset = (pdf.internal.pageSize.getWidth() - pdfWidth) / 2;
+//       const yOffset = (pdf.internal.pageSize.getHeight() - pdfHeight) / 2;
+
+//       pdf.addImage(dataUrl, "PNG", xOffset, yOffset, pdfWidth, pdfHeight);
+//       pdf.save("certificate_full_visible.pdf");
+//     } catch (error) {
+//       console.error("PDF generation failed:", error);
+//     }
+//   };
+
+//   setTimeout(generatePDF, 1000);
+// }, []);
+
+// useEffect(() => {
+//   const generatePDF = async () => {
+//     const element = certificateRef.current;
+//     if (!element) return;
+
+//     try {
+//       const dataUrl = await domtoimage.toPng(element, {
+//         quality: 1,
+//         scale: 2, // better clarity
+//       });
+
+//       const pxToMm = (px) => px / 3.78;
+
+//       // ✅ Tumhara desired size
+//       const targetWidthPx = 270;
+//       const targetHeightPx = 650;
+
+//       const elementWidthMm = pxToMm(targetWidthPx);
+//       const elementHeightMm = pxToMm(targetHeightPx);
+
+//       // ✅ Fixed page size
+//       const pdf = new jsPDF({
+//         orientation: "p",
+//         unit: "mm",
+//         format: [elementWidthMm, elementHeightMm],
+//       });
+
+//       // ✅ Image fit full page
+//       pdf.addImage(dataUrl, "PNG", 0, 0, elementWidthMm, elementHeightMm);
+//       pdf.save("certificate_fixed_size.pdf");
+//     } catch (error) {
+//       console.error("PDF generation failed:", error);
+//     }
+//   };
+
+//   setTimeout(generatePDF, 1000);
+// }, []);
 useEffect(() => {
   const generatePDF = async () => {
     const element = certificateRef.current;
     if (!element) return;
 
     try {
+      const rect = element.getBoundingClientRect();
+      const pxToMm = (px) => px / 3.78;
+
+      // safe zone (avoid cutting)
+      const captureWidth = rect.width + 30;
+      const captureHeight = rect.height + 22;
+
       const dataUrl = await domtoimage.toPng(element, {
         quality: 1,
-        scale: 2, // higher-quality render
+        scale: 2,
+        width: captureWidth,
+        height: captureHeight,
+        style: { background: "white" },
       });
 
-      const rect = element.getBoundingClientRect();
+      // Tumhara desired size (250x650 px)
+      const elementWidthMm = pxToMm(250);
+      const elementHeightMm = pxToMm(650);
 
-      // Convert pixels → millimeters
-      const pxToMm = (px) => px / 3.78;
-      let elementWidthMm = pxToMm(rect.width);
-      let elementHeightMm = pxToMm(rect.height);
-
-      // ✅ Instead of increasing canvas size too much, keep proportions safe
-      const increase = 1.3; // 15% larger (safe)
-      const pdfWidth = elementWidthMm * increase;
-      const pdfHeight = elementHeightMm * increase;
-
-      // ✅ Always make PDF at least A4 size if content smaller
       const pdf = new jsPDF({
         orientation: "p",
         unit: "mm",
-        format: [Math.max(pdfWidth, 500), Math.max(pdfHeight, 210)],
+        format: [elementWidthMm, elementHeightMm],
       });
 
-      // Center image inside the page
-      const xOffset = (pdf.internal.pageSize.getWidth() - pdfWidth) / 2;
-      const yOffset = (pdf.internal.pageSize.getHeight() - pdfHeight) / 2;
-
-      pdf.addImage(dataUrl, "PNG", xOffset, yOffset, pdfWidth, pdfHeight);
-      pdf.save("certificate_full_visible.pdf");
+      // Thoda sa left shift aur width +2mm barha do
+      pdf.addImage(dataUrl, "PNG", -1, 0, elementWidthMm + 2, elementHeightMm);
+      pdf.save("certificate_fixed_full.pdf");
     } catch (error) {
       console.error("PDF generation failed:", error);
     }
@@ -181,7 +260,6 @@ useEffect(() => {
 
   setTimeout(generatePDF, 1000);
 }, []);
-
 
   if (isLoading)
     return <p className="text-center mt-12 text-gray-500">جاري التحميل...</p>;
@@ -260,7 +338,7 @@ useEffect(() => {
     //     </div>
     //   </div>
     // </div>
-<div className="bg-gray-50 p-5">
+<div className=" p-5">
 
 
     <div className="w-[460px] mx-auto bg-white p-4">
