@@ -6,6 +6,7 @@ import EditCertificate from './components/Editcercertiicationform';
 import CreateCertificate from './components/ceateCertificate';
 import { CertificateDetails } from './components/Certificate';
 import ProtectedRoute from './components/ProtectedRoutes';
+import Test from './components/test';
 
 function CertificateWrapper() {
   const { id } = useParams();
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<Login />} />
+        <Route path="/y" element={<Test />} />
         <Route path="/DownloadFile/690cb3d01969372984ef00997382732863272736239827323723526532327823276327/:id" element={<CertificateWrapper />} />
 
         {/* Protected Routes */}

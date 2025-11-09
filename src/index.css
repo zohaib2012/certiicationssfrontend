@@ -15,7 +15,7 @@
 /* Custom font-face rule yahan likhi ho */
 @font-face {
   font-family: 'BahijTheSansArabic';
-  src: url('/bahijthesansarabicplain.ttf') format('truetype');
+  src: url('../public/fonts/Bahij_TheSansArabic-Plain.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
