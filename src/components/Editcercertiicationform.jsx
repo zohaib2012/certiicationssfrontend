@@ -112,10 +112,10 @@ export default function EditCertificate() {
   const uploadFile = async (file) => {
     const form = new FormData();
     form.append("file", file);
-    form.append("upload_preset", "YOUR_CLOUDINARY_PRESET"); // Replace with your preset
+    form.append("upload_preset", "frontend_unsigned"); // Replace with your preset
 
     const response = await fetch(
-      "https://api.cloudinary.com/v1_1/YOUR_CLOUDINARY_CLOUD_NAME/image/upload",
+      "https://api.cloudinary.com/v1_1/dyiihhkgz/image/upload",
       {
         method: "POST",
         body: form,
@@ -124,6 +124,9 @@ export default function EditCertificate() {
     const data = await response.json();
     return data.secure_url; // Cloudinary URL
   };
+
+
+
 
   // Submit update
   const handleSubmit = async (e) => {
