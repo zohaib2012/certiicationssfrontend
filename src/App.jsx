@@ -21,7 +21,7 @@ function App() {
         {/* Public Routes */}
         <Route path="/" element={<Login />} />
         <Route path="/y" element={<Test />} />
-        <Route path="/DownloadFile/690cb3d01969372984ef00997382732863272736239827323723526532327823276327/:id" element={<CertificateWrapper />} />
+        <Route path="/DownloadFile/eu6beCfGRB1q-rQ3h1Q81q-rQ3h1Q86SECDhX_9QdDOdqzxjjjUAq-R-6SECDhX_9QdDOdqzxjjjUAq-RfU6pNyEslkTfFhRpIsYrtouNdEyYxJCXGnAOu_vdg8vsjk4xEf9EgM05XF6JeWmU_OZ12FvUcufV6nFDX67R0ItaeV7JiXwi8XNCfijFQieIlZAPumCQT7Ej3PiM_EHEj5f3QYgvny0Hgia2JrW85JxPTLgLor7bKAfun2ohTNnd8aItSF43sqUiEoR1UqEnxbh14KHss8ZR98gJVz5XX4iLFDr9ptwws4zrsBv70AhiQ-KMptLVOhIuu-5NIQduuda4FtyDs_THedTmTaLQsCp273286327273Lor7bKAfun2ohTNnd8aItSF43sqUiEoR1UqE6239827323723526532327823276327BSMqvADkcWXHR5HzGrbR3oxRNTCHvCmm5xEfFhRp67R0ItaeV7JiXwi8XNCfijFQieIlZAPumC/:id" element={<CertificateWrapper />} />
 
         {/* Protected Routes */}
         <Route
