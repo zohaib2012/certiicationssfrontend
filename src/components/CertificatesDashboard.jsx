@@ -123,7 +123,7 @@ export default function CertificatesDashboard() {
                 <td className="py-2 px-4">{safeText(c.expiryDate)}</td>
                 <td className="py-2 px-4 flex gap-2 justify-center">
                   <Link
-                    to={`/DownloadFile/eu6beCfGRB1q-rQ3h1Q81q-rQ3h1Q86SECDhX_9QdDOdqzxjjjUAq-R-6SECDhX_9QdDOdqzxjjjUAq-RfU6pNyEslkTfFhRpIsYrtouNdEyYxJCXGnAOu_vdg8vsjk4xEf9EgM05XF6JeWmU_OZ12FvUcufV6nFDX67R0ItaeV7JiXwi8XNCfijFQieIlZAPumCQT7Ej3PiM_EHEj5f3QYgvny0Hgia2JrW85JxPTLgLor7bKAfun2ohTNnd8aItSF43sqUiEoR1UqEnxbh14KHss8ZR98gJVz5XX4iLFDr9ptwws4zrsBv70AhiQ-KMptLVOhIuu-5NIQduuda4FtyDs_THedTmTaLQsCp273286327273Lor7bKAfun2ohTNnd8aItSF43sqUiEoR1UqE6239827323723526532327823276327BSMqvADkcWXHR5HzGrbR3oxRNTCHvCmm5xEfFhRp67R0ItaeV7JiXwi8XNCfijFQieIlZAPumC/${c._id}`}
+                    to={`/DownloadFile/eu6beCfGRB1q-rQ3h1Q81q-rQ3h1Q86SECDhX_9QdDOdqzxjjjUAq-R-6SECDhX_9QdDOdqzxjjjUAq-RfU6pNyEslkTfFhRpIsYrtouNdEyYxJCXGnAOu_vdg8vsjk4xEf9EgM05XF6JeWmU_OZ12FvUcufV6nFDX67R0ItaeV7JiXwi8XNCfijFQieIlZAPumCQT7Ej3PiM_EHEj5f3QYgvny0Hgia2JrW85JxPTLgLor7bKAfun2ohTNnd8aItSF43sqUiEoRCXGnAOu_vdg8vsjk4xEf9EgM05XF6JeWCXGnAOu_vdg8vsjk4xEf9EgM05XF6JeWCXGnAOu_vdg8vsjk4xEf9EgM05XF6JeWCXGnAOu_vdg8vsjk4xEf9EgM05XF6JeW1UqEnxbh14KHss8ZR98gJVz5XX4iLFDr9ptwws4zrsBv70AhiQ-KMptLVOhIuu-5NIQduuda4FtyDs_THedTmTaLQsCp273286327273Lor7bKAfun2ohTNnd8aItSF43sqUiEoR1UqE623982732372352653h1Q81q-rQ3h1Q86SECDhX_9QdDOdqz2327823276327BSMqvADkcWXHR5HzGrbR3oxRNTCHvCmm5xEfFhRp67R0ItaeV7JiXwi8XNCfijFQieIlZAPumC/${c._id}`}
                     className="bg-green-700 hover:bg-green-800 text-white px-3 py-1 rounded inline-block text-center"
                   >
                     عرض
