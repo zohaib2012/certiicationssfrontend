@@ -506,7 +506,13 @@ useEffect(() => {
 }, []);
 
   if (isLoading)
-    return <p className="text-center mt-12 text-gray-500">جاري التحميل...</p>;
+  return (
+    <div className="flex flex-col items-center justify-center mt-12">
+      <div className="w-8 h-8 border-4 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
+   
+    </div>
+  );
+
   if (error)
     return (
       <p className="text-center mt-12 text-red-600">
