@@ -570,8 +570,8 @@ useEffect(() => {
 
     <div className="max-w-md mx-auto bg-white border border-gray-100 rounded-2xl shadow-2xl overflow-hidden  text-right mt-8 p-6">
       <div dir="rtl" className="space-y-10 text-right">
-        <div className="font-bahij -mt-10 font-medium">
-          <Section className='font-bahij' title="بيانات الشهادة:">
+        <div className="font-bahij -mt-10 font-medium text-xs">
+          <Section title="بيانات الشهادة:">
             <KeyValue  label="رقم الشهادة" value={certificate.certificateNumber} />
             <KeyValue label="تاريخ الإصدار" value={certificate.issueDate} />
             <KeyValue label="نهاية الصلاحية" value={certificate.expiryDate} />
