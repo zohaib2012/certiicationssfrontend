@@ -1,5 +1,4 @@
 
-
 import { Route, Routes, useParams } from 'react-router-dom';
 import Login from './components/Login';
 import CertificatesDashboard from './components/CertificatesDashboard';
