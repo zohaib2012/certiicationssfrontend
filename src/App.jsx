@@ -16,7 +16,7 @@ console.log(getComputedStyle(document.body).fontFamily)
 function App() {
   return (
     <div>
-      <Routes>
+      {/* <Routes>
         {/* Public Routes */}
         <Route path="/" element={<Login />} />
         <Route path="/y" element={<Test />} />
@@ -47,7 +47,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-      </Routes>
+      </Routes> */}
     </div>
   );
 }
